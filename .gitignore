@@ -4,5 +4,6 @@ __pycache__/
 venv/
 .DS_Store
 .ipynb_checkpoints/
-# keep outputs/ committed as POC evidence; ignore stray local files only
+# keep plots + report.json committed as POC evidence; drop verbose logs
 outputs/*.tmp
+outputs/install.log

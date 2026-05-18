@@ -1,0 +1,19 @@
+/Volumes/Gopalmac/Gopal-aiops/toto-observability-poc/.venv/lib/python3.12/site-packages/gluonts/json.py:102: UserWarning: Using `json`-module for json-handling. Consider installing one of `orjson`, `ujson` to speed up serialization and deserialization.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[1/5] Generating synthetic observability metrics (608 hourly steps)...
+      metrics: ['cpu_utilization_pct', 'request_latency_p95_ms', 'request_rate_rps']
+[2/5] Loading Toto-2.0-22m (first run downloads the checkpoint from HuggingFace)...
+      loaded 21,915,584 params on cpu in 40.8s
+[3/5] Forecasting 96 steps ahead for 3 metrics...
+      inference took 1.07s
+[4/5] Scoring forecast against held-out actuals...
+             cpu_utilization_pct | MAE=    4.038 sMAPE=  7.51% cov80=0.77
+          request_latency_p95_ms | MAE=   16.224 sMAPE=  9.23% cov80=0.73
+                request_rate_rps | MAE=   25.321 sMAPE=  2.89% cov80=0.97
+[5/5] Writing plots + report to outputs/ ...
+
+Done. Aggregate:
+  mean sMAPE         : 6.54%
+  mean 80% coverage  : 0.82  (ideal ~0.80)
+  artifacts          : /Volumes/Gopalmac/Gopal-aiops/toto-observability-poc/outputs

@@ -66,6 +66,24 @@ toto-observability-poc/
 `outputs/report.json` — model info, per-metric scores, aggregate sMAPE & coverage.
 `outputs/forecast_<metric>.png` — history + actual + median forecast + 80% band.
 
+## Results (reproduced run — `Toto-2.0-22m`, CPU, zero-shot)
+
+512h context → 96h (4-day) horizon, 3 metrics forecast multivariately.
+Checkpoint load 40.8s; **inference 1.07s** for all 3 series.
+
+| Metric | sMAPE | MAE | 80% interval coverage |
+|--------|------:|----:|----------------------:|
+| `cpu_utilization_pct` | 7.51% | 4.04 | 0.77 |
+| `request_latency_p95_ms` | 9.23% | 16.22 | 0.73 |
+| `request_rate_rps` | 2.89% | 25.32 | 0.97 |
+| **Aggregate** | **6.54%** | — | **0.82** (ideal ~0.80) |
+
+Zero-shot, no fine-tuning. The model recovers daily seasonality + trend and
+its 80% band is well-calibrated (0.82 vs. nominal 0.80). See
+[`outputs/`](outputs/) for plots and `report.json`.
+
+![CPU forecast](outputs/forecast_cpu_utilization_pct.png)
+
 ## Extending to real data
 
 Swap `src/synthetic.generate_dataset()` for a Prometheus/Mimir range query

@@ -1,0 +1,35 @@
+{
+  "model": "Datadog/Toto-2.0-22m",
+  "device": "cpu",
+  "n_params": 21915584,
+  "context_steps": 512,
+  "horizon_steps": 96,
+  "inference_seconds": 1.07,
+  "metrics": {
+    "cpu_utilization_pct": {
+      "unit": "%",
+      "mae": 4.0379,
+      "rmse": 6.5916,
+      "smape_pct": 7.5088,
+      "coverage_80pct_interval": 0.7708
+    },
+    "request_latency_p95_ms": {
+      "unit": "ms",
+      "mae": 16.2241,
+      "rmse": 34.2101,
+      "smape_pct": 9.2311,
+      "coverage_80pct_interval": 0.7292
+    },
+    "request_rate_rps": {
+      "unit": "req/s",
+      "mae": 25.3207,
+      "rmse": 31.7343,
+      "smape_pct": 2.8872,
+      "coverage_80pct_interval": 0.9688
+    }
+  },
+  "aggregate": {
+    "mean_smape_pct": 6.5424,
+    "mean_coverage_80pct": 0.8229
+  }
+}
